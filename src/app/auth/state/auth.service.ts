@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { transaction, withTransaction } from '@datorama/akita';
+import { resetStores, transaction, withTransaction } from '@datorama/akita';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { CartStore } from 'src/app/cart/state/cart.store';
@@ -37,7 +37,6 @@ export class AuthService {
 
   @transaction()
   logout() {
-    this.authStore.reset();
-    this.cartStore.reset();
+    resetStores({ exclude: ['products'] });
   }
 }
