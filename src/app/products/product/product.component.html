@@ -1,1 +1,11 @@
-<p>product works!</p>
+<div class="card">
+  <div class="card-body">
+
+    <h5 class="card-title">{{ product?.title | titlecase }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ product?.price | currency }}</h6>
+    <p class="card-text">{{ product?.description | titlecase }}</p>
+
+    <a href="#" class="card-link">Increment</a>
+    <a href="#" class="card-link">Decrement</a>
+  </div>
+</div>

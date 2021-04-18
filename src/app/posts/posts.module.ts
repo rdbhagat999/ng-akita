@@ -4,6 +4,7 @@ import { PostsComponent } from './posts/posts.component';
 import { PostComponent } from './post/post.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -15,7 +16,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    SharedModule,
   ]
 })
 export class PostsModule { }

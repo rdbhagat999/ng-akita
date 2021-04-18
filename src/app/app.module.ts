@@ -13,17 +13,19 @@ import { AuthModule } from './auth/auth.module';
 import { ProductsModule } from './products/products.module';
 import { NavComponent } from './nav/nav.component';
 import { PostsModule } from './posts/posts.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SharedModule,
     AuthModule,
     ProductsModule,
     PostsModule,

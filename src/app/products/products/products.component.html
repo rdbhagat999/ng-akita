@@ -1,1 +1,44 @@
-<p>products works!</p>
+<div class="row">
+
+  <div class="col-sm-12">
+
+    <select class="form-select" aria-label="sort product by" [formControl]="sortControl">
+      <option value="title">Name</option>
+      <option value="price">Price</option>
+    </select>
+
+  </div>
+
+  <div class="col-sm-12">
+
+    <div class="my-3">
+      <input type="text" class="form-control" id="searchInput" placeholder="search product" [formControl]="searchControl">
+    </div>
+
+  </div>
+
+</div>
+
+<ng-template #loadingTpl>
+
+  <app-loading-indicator></app-loading-indicator>
+
+</ng-template>
+
+<ng-container *ngIf="!(loading$ | async); else loadingTpl">
+
+  <ul class="list-group">
+
+    <div class="row">
+
+      <div class="col-sm-6 col-lg-4 col-xxl-3" *ngFor="let product of (products$ | async)">
+        <app-product [product]="product"></app-product>
+      </div>
+
+    </div>
+
+  </ul>
+
+</ng-container>
+
+
