@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { withTransaction } from '@datorama/akita';
+import { transaction, withTransaction } from '@datorama/akita';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { CartStore } from 'src/app/cart/state/cart.store';
 import { AuthStore } from './auth.store';
 
 export type Creds = {
@@ -13,7 +14,7 @@ export type Creds = {
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  constructor(private authStore: AuthStore, private http: HttpClient) {
+  constructor(private authStore: AuthStore, private cartStore: CartStore, private http: HttpClient) {
   }
 
   login(creds: Creds) {
@@ -34,7 +35,9 @@ export class AuthService {
     );
   }
 
+  @transaction()
   logout() {
     this.authStore.reset();
+    this.cartStore.reset();
   }
 }

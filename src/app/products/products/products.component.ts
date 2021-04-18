@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { combineLatest, Observable } from 'rxjs';
 import { startWith, switchMap } from 'rxjs/operators';
+import { CartService } from 'src/app/cart/state/cart.service';
 import { Product } from '../state/product.model';
 import { ProductsQuery } from '../state/products.query';
 import { ProductsService } from '../state/products.service';
@@ -19,7 +20,7 @@ export class ProductsComponent implements OnInit {
   searchControl = new FormControl('');
   sortControl = new FormControl('title');
 
-  constructor(private productsService: ProductsService, private productsQuery: ProductsQuery) { }
+  constructor(private productsService: ProductsService, private productsQuery: ProductsQuery, private cartService: CartService) { }
 
   ngOnInit(): void {
 
@@ -39,11 +40,11 @@ export class ProductsComponent implements OnInit {
   }
 
   addProductToCart({ id }: Product) {
-
+    this.cartService.addProductToCart(id);
   }
 
   subtractProductFromCart({ id }: Product) {
-
+    this.cartService.subtractProductFromCart(id);
   }
 
 }

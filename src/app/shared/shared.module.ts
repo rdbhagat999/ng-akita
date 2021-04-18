@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
+import { NavComponent } from './nav/nav.component';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
-  declarations: [ LoadingIndicatorComponent ],
+  declarations: [ LoadingIndicatorComponent, NavComponent, ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
   ],
-  exports: [ LoadingIndicatorComponent ]
+  exports: [ LoadingIndicatorComponent, NavComponent, ]
 })
 export class SharedModule { }

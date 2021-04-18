@@ -11,14 +11,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from './auth/auth.module';
 import { ProductsModule } from './products/products.module';
-import { NavComponent } from './nav/nav.component';
 import { PostsModule } from './posts/posts.module';
 import { SharedModule } from './shared/shared.module';
+import { CartModule } from './cart/cart.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +27,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     AuthModule,
     ProductsModule,
+    CartModule,
     PostsModule,
     AppRoutingModule,
     environment.production ? [] : AkitaNgDevtools.forRoot()
