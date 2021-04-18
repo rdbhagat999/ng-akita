@@ -9,16 +9,24 @@ import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthModule } from './auth/auth.module';
+import { ProductsModule } from './products/products.module';
+import { NavComponent } from './nav/nav.component';
+import { PostsModule } from './posts/posts.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    AuthModule,
+    ProductsModule,
+    PostsModule,
     AppRoutingModule,
     environment.production ? [] : AkitaNgDevtools.forRoot()
   ],

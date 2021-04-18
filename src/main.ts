@@ -7,7 +7,7 @@ import { environment } from './environments/environment';
 
 const storage = persistState({
   key: 'akitaPlayground',
-  include: ['auth.token', 'todos'],
+  include: ['auth', 'posts', 'todos'],
 });
 
 const persistStorage = { provide: 'persistStorage', useValue: storage };
