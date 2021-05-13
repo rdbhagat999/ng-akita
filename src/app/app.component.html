@@ -1,5 +1,25 @@
 <app-nav></app-nav>
 
+<div class="d-flex justify-content-center align-items-center mb-3">
+
+  <button class="primary" (click)="changeTheme('default')">
+    Default
+  </button>
+
+  <button class="primary" (click)="changeTheme('netflix')">
+    Netflix
+  </button>
+
+  <button class="primary" (click)="changeTheme('spotify')">
+    Spotify
+  </button>
+
+  <button class="primary" (click)="changeTheme('dark')">
+    Dark
+  </button>
+
+</div>
+
 <main class="container">
   <router-outlet></router-outlet>
 </main>

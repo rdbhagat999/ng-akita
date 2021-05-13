@@ -5,7 +5,8 @@ import { PostComponent } from './post/post.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
-
+import { ScrollingModule } from "@angular/cdk/scrolling";
+import { DragDropModule } from "@angular/cdk/drag-drop";
 
 
 @NgModule({
@@ -15,9 +16,11 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     RouterModule,
+    ReactiveFormsModule,
     SharedModule,
+    ScrollingModule,
+    DragDropModule,
   ]
 })
 export class PostsModule { }
