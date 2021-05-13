@@ -1,1 +1,36 @@
-<p>posts works!</p>
+<ng-template #idleTpl>Idle</ng-template>
+
+<h5>Loaders</h5>
+<p>Get => <span *ngIf="(loaders.get$ | async); else idleTpl">Loading...</span></p>
+<p>POST => <span *ngIf="(loaders.add$ | async); else idleTpl">Loading...</span></p>
+<p>PUT => <span *ngIf="(loaders.update$ | async); else idleTpl">Loading...</span></p>
+<p>DELETE => <span *ngIf="(loaders.delete$ | async); else idleTpl">Loading...</span></p>
+
+<ng-template #loadingTpl>
+
+  <app-loading-indicator></app-loading-indicator>
+
+</ng-template>
+
+<div class="row">
+  <div class="col-sm-12">
+
+    <button type="button" class="btn btn-primary" (click)="fetchOne(1)">Fetch posts/1</button>
+    <button type="button" class="btn btn-secondary" (click)="addPost()">Add</button>
+    <button type="button" class="btn btn-success" (click)="updatePost(3)">Update post 3</button>
+    <button type="button" class="btn btn-danger" (click)="removePost(5)">Remove post 5</button>
+
+  </div>
+</div>
+
+<div class="my-3" *ngIf="!(loaders.get$ | async); else loadingTpl">
+
+  <cdk-virtual-scroll-viewport class="viewport" [itemSize]="(posts$ | async)?.length">
+    <div *cdkVirtualFor="let post of (posts$ | async)">
+      <app-post class="virtual-item-detail" [post]="post"></app-post>
+    </div>
+  </cdk-virtual-scroll-viewport>
+
+</div>
+
+

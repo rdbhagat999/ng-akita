@@ -1,1 +1,10 @@
-<p>post works!</p>
+<div class="card shadow">
+  <div class="card-body">
+
+    <h5 class="card-title">{{ post?.title | titlecase }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">UserId: {{ post?.userId }}</h6>
+
+    <p class="card-text post-link user-select-none">{{ post?.body | titlecase }}</p>
+
+  </div>
+</div>
